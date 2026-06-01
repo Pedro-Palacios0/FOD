@@ -1,6 +1,19 @@
+{Precondiciones:
+• Existe un archivo maestro.
+• Existe un único archivo detalle que modifica al
+maestro.
+• Cada registro del detalle modifica a un registro del
+maestro que seguro existe.
+•No todos los registros del maestro son
+necesariamente modificados.
+• Cada elemento del archivo maestro puede no ser
+modificado, o ser modificado por uno o más
+elementos del detalle.
+•Ambos archivos están ordenados por igual criterio. }
+
 type
  producto = record
-cod: string[4];
+ cod: string[4];
  descripcion: string[30];
  pu: real;
  stock: integer;
@@ -25,18 +38,18 @@ begin {Inicio del programa}
  reset(det);
 {Loop archivo detalle}
 while not(EOF(det)) do begin
-read(mae, regm); // Lectura archivo maestro
+ read(mae, regm); // Lectura archivo maestro
  read(det, regd); // Lectura archivo detalle
 
 {Se busca en el maestro el producto del
 detalle}
  while (regm.cod <> regd.cod) do
- read(mae, regm);
+  read(mae, regm);
 {Se totaliza la cantidad vendida del detalle}
-cod_actual := regd.cod;
-tot_vendido := 0;
-while (regd.cod = cod_actual) do begin
-tot_vendido:=tot_vendido+regd.cant_vendida; read(det, regd);
+ cod_actual := regd.cod;
+ tot_vendido := 0;
+ while (regd.cod = cod_actual) do begin
+ tot_vendido:=tot_vendido+regd.cant_vendida; read(det, regd);
 end;
 {Se actualiza el stock del producto con la
 cantidad vendida del mismo}

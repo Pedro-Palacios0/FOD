@@ -1,3 +1,5 @@
+{Solucion ejemplo 2}
+
 const valoralto = 'ZZZZ';
 type str4 = string[4];
 producto = record

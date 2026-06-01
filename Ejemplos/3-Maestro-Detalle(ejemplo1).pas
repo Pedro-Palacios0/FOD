@@ -1,3 +1,16 @@
+{Precondiciones:
+• Existe un archivo maestro.
+• Existe un único archivo detalle que modifica al
+maestro.
+• Cada registro del detalle modifica a un solo registro
+del maestro que seguro existe.
+•No todos los registros del maestro son
+necesariamente modificados.
+• Cada elemento del maestro que se modifica, es
+alterado por un solo un elemento del archivo
+detalle.
+•Ambos archivos están ordenados por igual criterio.}
+
 type
  producto = record
 cod: string[4];
